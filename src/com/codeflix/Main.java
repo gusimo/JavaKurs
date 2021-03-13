@@ -6,19 +6,25 @@ public class Main {
 
     public static void main(String[] args) {
 
-        for (int i = 1; i <= 100; i++) {
-            if (i % 4 == 0 || i % 7 == 0) {
-                if (i % 4 == 0) {
-                    System.out.print("Fizz");
-                }
-                if (i % 7 == 0) {
-                    System.out.print("Buzz");
-                }
+        ArrayList<Integer> lotto = new ArrayList<>();
+        Random random = new Random();
 
-                System.out.println("");
-            } else {
-                System.out.println(i);
+        while (lotto.stream().count() < 6) {
+            int ball = random.nextInt(49);
+
+            if (!lotto.contains(ball)) {
+                lotto.add(ball);
             }
+        }
+
+        Collections.sort(lotto);
+
+        for (int i=0; i < lotto.stream().count(); i++) {
+            if (i >0) {
+                System.out.print(", ");
+            }
+
+            System.out.print(lotto.get(i));
         }
     }
 }
