@@ -9,6 +9,7 @@ public class Main {
         int limit = 600;
 
         Date start = new Date();
+        System.out.print(String.format("f(%d) = ", limit));
         // System.out.println(fibonacci(limit));
         System.out.println(fibonacciFast(limit));
         Date end = new Date();
