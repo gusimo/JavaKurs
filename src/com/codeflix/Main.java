@@ -6,33 +6,34 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Zuerst legen wir die Variablen fest, sie können natürlich auch vom Benutzer abgefragt werden
-        int age = 56;
-        double income = 2000.00;
-        boolean house = true;
-        String gender = "Male";
+        // Die ist unser vorgegebener String. Die \ müssen verdoppelt werden, weil diese in fast allen
+        // Programmiersprachen ein Sonderzeichen einleiten. \n steht zum Beispiel für eine neue Zeile.
+        String myString = "C:\\Downloads\\Testtabelle_2020_12_31.csv";
 
-        // Wir schließen zuers die Altersgrenzen aus
-        if ( age < 18 || ( house && age > 70 ) || ( !house && age > 55 ) ) {
-            System.out.println("Das Alter passt nicht");
-            return;
-        }
+        // Wir suchen mit lastIndexOf die position des letzten Backslash. Der String verhält sich hier so wie
+        // ein Array aus Buchstaben
+        int lastBackslashPosition = myString.lastIndexOf("\\");
 
-        // Dann bestimmen wir das Alter, bis zu dem gerechnet werden darf
-        int maximumAge = 55;
-        if (house) {
-            if (gender.equalsIgnoreCase("male")) {
-                maximumAge = 70;
-            }
-            if (gender.equalsIgnoreCase("female")) {
-                maximumAge = 74;
-            }
-        }
+        // Nun kopieren wir den Teilstring ab der Position hinter dem letzten Backslash. So erhalten wir den Dateinamen.
+        String fullFilename = myString.substring(lastBackslashPosition + 1);
 
-        // Jetzt bestimmen wir den Kreditbetrag
-        int maximumMonths = (maximumAge - age) * 12;
-        double maxCredit = maximumMonths * income;
-        
-        System.out.println(String.format("%.2f Euro", maxCredit));
+        // Das Datum besteht aus Zahlen, diese Konvertieren wir zuerst in einen passenden String
+        String currentDateString = String.format("%d_%02d_%02d",
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        );
+
+        // Nun ersetzen wir das Datum
+        fullFilename = fullFilename.replace("2020_12_31", currentDateString );
+
+        // Mit Substring und der Länge des Strings trennen wir die Dateiendung ab
+        String fileName = fullFilename.substring(0,fullFilename.length()-4);
+        String fileExtension = fullFilename.substring(fullFilename.length()-3,fullFilename.length());
+
+
+        System.out.println(fullFilename);
+        System.out.println("Dateiname: " + fileName);
+        System.out.println("Dateiendung: " + fileExtension);
     }
 }
