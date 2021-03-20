@@ -5,35 +5,35 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
+        String mitarbeiterName1 = "Ellen Lang";
+        int mitarbeiterGehalt1 = 20;
+        boolean mitarbeiterTeilzeit1 = false;
+        int mitarbeiterUrlaubstage1 = 30;
 
-        // Die ist unser vorgegebener String. Die \ müssen verdoppelt werden, weil diese in fast allen
-        // Programmiersprachen ein Sonderzeichen einleiten. \n steht zum Beispiel für eine neue Zeile.
-        String myString = "C:\\Downloads\\Testtabelle_2020_12_31.csv";
+        String mitarbeiterName2 = "Rainer Zufall";
+        int mitarbeiterGehalt2 = 22;
+        boolean mitarbeiterTeilzeit2 = true;
+        int mitarbeiterUrlaubstage2 = 30;
 
-        // Wir suchen mit lastIndexOf die position des letzten Backslash. Der String verhält sich hier so wie
-        // ein Array aus Buchstaben
-        int lastBackslashPosition = myString.lastIndexOf("\\");
+        String mitarbeiterName3 = "Volker Racho";
+        int mitarbeiterGehalt3 = 25;
+        boolean mitarbeiterTeilzeit3 = false;
+        boolean mitarbeiterManagement3 = true;
+        int mitarbeiterUrlaubstage3 = 30;
 
-        // Nun kopieren wir den Teilstring ab der Position hinter dem letzten Backslash. So erhalten wir den Dateinamen.
-        String fullFilename = myString.substring(lastBackslashPosition + 1);
+        rechneGehalt(mitarbeiterName1, mitarbeiterGehalt1, mitarbeiterTeilzeit1, false);
+        rechneGehalt(mitarbeiterName2, mitarbeiterGehalt2, mitarbeiterTeilzeit2, false);
+        rechneGehalt(mitarbeiterName3, mitarbeiterGehalt3, mitarbeiterTeilzeit3, mitarbeiterManagement3);
 
-        // Das Datum besteht aus Zahlen, diese Konvertieren wir zuerst in einen passenden String
-        String currentDateString = String.format("%d_%02d_%02d",
-                Calendar.getInstance().get(Calendar.YEAR),
-                Calendar.getInstance().get(Calendar.MONTH),
-                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
-        );
+    }
 
-        // Nun ersetzen wir das Datum
-        fullFilename = fullFilename.replace("2020_12_31", currentDateString );
+    private static double rechneGehalt(String name, int gehalt, boolean teilzeit, boolean management) {
+        int stunden = teilzeit ? 20 : 40;
+        double individualGehalt = management ? gehalt * 1.2 : gehalt;
+        double result = stunden * individualGehalt;
 
-        // Mit Substring und der Länge des Strings trennen wir die Dateiendung ab
-        String fileName = fullFilename.substring(0,fullFilename.length()-4);
-        String fileExtension = fullFilename.substring(fullFilename.length()-3,fullFilename.length());
+        System.out.println(String.format("Das Gehalt für %s ist %.2f", name, result));
 
-
-        System.out.println(fullFilename);
-        System.out.println("Dateiname: " + fileName);
-        System.out.println("Dateiendung: " + fileExtension);
+        return result;
     }
 }
