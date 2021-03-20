@@ -21,7 +21,7 @@ public class Mitarbeiter {
     }
 
     public double rechneGehalt() {
-        double result = stunden() * individualGehalt();
+        double result = stunden() * individualGehalt() *4;
 
         System.out.println(String.format("Das Gehalt für %s ist %.2f", Name, result));
 
