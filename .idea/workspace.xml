@@ -94,18 +94,9 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
-  <component name="RunManager" selected="JUnit.SmokeTest.seleniumChromeTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.codeflix.Main" />
-      <module name="JavaKurs" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.SmokeTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -132,6 +123,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SmokeTest.checkHeader (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaKurs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.codeflix.selenium.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.codeflix.selenium" />
+      <option name="MAIN_CLASS_NAME" value="com.codeflix.selenium.SmokeTest" />
+      <option name="METHOD_NAME" value="checkHeader(org.junit.jupiter.api.TestReporter)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmokeTest.checkHeader" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaKurs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.codeflix.selenium.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.codeflix.selenium" />
+      <option name="MAIN_CLASS_NAME" value="com.codeflix.selenium.SmokeTest" />
+      <option name="METHOD_NAME" value="checkHeader" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SmokeTest.seleniumChromeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JavaKurs" />
       <extension name="coverage">
@@ -148,7 +171,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SmokeTest.seleniumFirefoxTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SmokeTest.seleniumTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JavaKurs" />
       <extension name="coverage">
         <pattern>
@@ -158,7 +181,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.codeflix.selenium" />
       <option name="MAIN_CLASS_NAME" value="com.codeflix.selenium.SmokeTest" />
-      <option name="METHOD_NAME" value="seleniumFirefoxTest" />
+      <option name="METHOD_NAME" value="seleniumTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -166,10 +189,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SmokeTest.seleniumChromeTest" />
         <item itemvalue="JUnit.SmokeTest" />
-        <item itemvalue="JUnit.SmokeTest.seleniumFirefoxTest" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.SmokeTest.checkHeader (1)" />
+        <item itemvalue="JUnit.SmokeTest.checkHeader" />
+        <item itemvalue="JUnit.SmokeTest.seleniumTest" />
+        <item itemvalue="JUnit.SmokeTest.seleniumChromeTest" />
       </list>
     </recent_temporary>
   </component>
@@ -182,7 +206,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615647413934</updated>
       <workItem from="1615647415222" duration="2015000" />
-      <workItem from="1616848343397" duration="729000" />
+      <workItem from="1616848343397" duration="5044000" />
     </task>
     <servers />
   </component>

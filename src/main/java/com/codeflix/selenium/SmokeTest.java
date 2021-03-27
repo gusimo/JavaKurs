@@ -33,7 +33,19 @@ public class SmokeTest {
     }
 
     @Test
-    public void checkHeader() {
+    @Order(1)
+    public void closeCookie(TestReporter reporter) {
+        browser.get("https://hiq.de");
+        WebElement cookieButton = browser.findElement(By.xpath("//div[@id='BorlabsCookieBox']//a[text()='Alle akzeptieren']"));
+        if (cookieButton != null) {
+            reporter.publishEntry(cookieButton.getText());
+            cookieButton.click();
+        }
+    }
+
+    @Test
+    @Order(10)
+    public void checkMenu(TestReporter reporter) {
         browser.get("https://hiq.de");
 
         String[] expected = new String[7];
@@ -49,6 +61,7 @@ public class SmokeTest {
 
         for (String expectedItem:expected) {
             boolean foundItem = false;
+            reporter.publishEntry("Search for " + expectedItem);
             for(WebElement existingItem: items) {
                 if (existingItem.getText().equals(expectedItem)) {
                     foundItem = true;
@@ -59,7 +72,8 @@ public class SmokeTest {
     }
 
     @Test
-    public void checkMenu() {
+    @Order(20)
+    public void checkHeader() {
         browser.get("https://hiq.de");
         WebElement header = browser.findElement(By.id("header"));
         assertTrue((header.isDisplayed()));
