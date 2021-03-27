@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.util.List;
@@ -59,12 +60,18 @@ public class SmokeTest {
 
         List<WebElement> items = browser.findElements(By.className("menu-item"));
 
+        Actions actions = new Actions(browser);
+
         for (String expectedItem:expected) {
             boolean foundItem = false;
             reporter.publishEntry("Search for " + expectedItem);
             for(WebElement existingItem: items) {
-                if (existingItem.getText().equals(expectedItem)) {
-                    foundItem = true;
+
+                if (existingItem.isDisplayed()) {
+                    actions.moveToElement(existingItem).perform();
+                    if (existingItem.getText().equals(expectedItem)) {
+                        foundItem = true;
+                    }
                 }
             }
             assertTrue(foundItem, expectedItem);
