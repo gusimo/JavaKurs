@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -16,6 +17,18 @@ public class SmokeTest {
         //Firefox's geckodriver *requires* you to specify its location.
         System.setProperty("webdriver.gecko.driver", "/etc/selenium/geckodriver");
         browser = new FirefoxDriver();
+        browser.get("https://hiq.de");
+        WebElement header = browser.findElement(By.id("header"));
+        assertTrue((header.isDisplayed()));
+        browser.close();
+    }
+
+    @Test
+    public void seleniumChromeTest() {
+        WebDriver browser;
+        //Firefox's geckodriver *requires* you to specify its location.
+        System.setProperty("webdriver.chrome.driver", "/etc/selenium/chromedriver");
+        browser = new ChromeDriver();
         browser.get("https://hiq.de");
         WebElement header = browser.findElement(By.id("header"));
         assertTrue((header.isDisplayed()));

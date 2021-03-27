@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="666030c4-0cfe-4cc4-a214-d3c652fa8449" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaKurs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaKurs.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codeflix/selenium/SmokeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeflix/selenium/SmokeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +95,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="JUnit.SmokeTest">
+  <component name="RunManager" selected="JUnit.SmokeTest.seleniumChromeTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.codeflix.Main" />
       <module name="JavaKurs" />
@@ -134,6 +132,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SmokeTest.seleniumChromeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JavaKurs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.codeflix.selenium.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.codeflix.selenium" />
+      <option name="MAIN_CLASS_NAME" value="com.codeflix.selenium.SmokeTest" />
+      <option name="METHOD_NAME" value="seleniumChromeTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SmokeTest.seleniumFirefoxTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JavaKurs" />
       <extension name="coverage">
@@ -152,6 +166,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SmokeTest.seleniumChromeTest" />
         <item itemvalue="JUnit.SmokeTest" />
         <item itemvalue="JUnit.SmokeTest.seleniumFirefoxTest" />
         <item itemvalue="Application.Main" />
@@ -167,7 +182,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615647413934</updated>
       <workItem from="1615647415222" duration="2015000" />
-      <workItem from="1616848343397" duration="427000" />
+      <workItem from="1616848343397" duration="729000" />
     </task>
     <servers />
   </component>
