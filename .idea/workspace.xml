@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="666030c4-0cfe-4cc4-a214-d3c652fa8449" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codeflix/selenium/CRMTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codeflix/selenium/pageObjects/LeadPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codeflix/selenium/pageObjects/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codeflix/selenium/CRMTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codeflix/selenium/CRMTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +114,7 @@
       <module name="JavaKurs" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.codeflix.selenium.*" />
+          <option name="PATTERN" value="com.codeflix.selenium.pageObjects.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -128,7 +129,7 @@
       <module name="JavaKurs" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.codeflix.selenium.*" />
+          <option name="PATTERN" value="com.codeflix.selenium.pageObjects.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -143,7 +144,7 @@
       <module name="JavaKurs" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.codeflix.selenium.*" />
+          <option name="PATTERN" value="com.codeflix.selenium.pageObjects.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -159,7 +160,7 @@
       <module name="JavaKurs" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.codeflix.selenium.*" />
+          <option name="PATTERN" value="com.codeflix.selenium.pageObjects.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -175,7 +176,7 @@
       <module name="JavaKurs" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.codeflix.selenium.*" />
+          <option name="PATTERN" value="com.codeflix.selenium.pageObjects.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -206,7 +207,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615647413934</updated>
       <workItem from="1615647415222" duration="2015000" />
-      <workItem from="1616848343397" duration="9064000" />
+      <workItem from="1616848343397" duration="10881000" />
     </task>
     <servers />
   </component>
