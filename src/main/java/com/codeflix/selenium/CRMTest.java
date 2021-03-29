@@ -3,49 +3,32 @@ package com.codeflix.selenium;
 import com.codeflix.selenium.pageObjects.LeadPage;
 import com.codeflix.selenium.pageObjects.LoginPage;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+
 
 import java.util.Random;
 
-@ExtendWith(BrowserSelectResolver.class)
 public class CRMTest {
-
-    private static WebDriver browser;
-
-    @BeforeAll
-    public static void initWebdriver(String browserType){
-        System.setProperty("webdriver.gecko.driver", "/etc/selenium/geckodriver");
-        System.setProperty("webdriver.chrome.driver", "/etc/selenium/chromedriver");
-
-        if (browserType != null && browserType.equalsIgnoreCase("firefox")) {
-            browser = new FirefoxDriver();
-        }
-        else {
-            browser = new ChromeDriver();
-        }
-    }
 
     @Test
     @Order(1)
     public void loginNegative(){
-        LoginPage loginPage = new LoginPage(browser);
+        LoginPage loginPage = new LoginPage();
         loginPage.loginNegative("gsimon", "NÖÖÖ");
     }
 
     @Test
     @Order(2)
     public void login(){
-        LoginPage loginPage = new LoginPage(browser);
+        LoginPage loginPage = new LoginPage();
         loginPage.login("gsimon", "LiM#m0cS");
     }
 
     @Test
     @Order(10)
     public void createLead(TestReporter reporter) {
-        LeadPage leadPage = new LeadPage(browser);
+        LeadPage leadPage = new LeadPage();
 
         Random rnd = new Random();
         String random_firstname = "Vorname" + rnd.nextInt(100);
@@ -57,7 +40,7 @@ public class CRMTest {
 
     @AfterAll
     public static void closeBrowser() {
-        browser.close();
+        closeWebDriver();
     }
 
 }

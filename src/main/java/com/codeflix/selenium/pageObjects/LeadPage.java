@@ -1,23 +1,15 @@
 package com.codeflix.selenium.pageObjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.Random;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
 
 public class LeadPage {
 
     private String url = "http://crm.hiq.de/index.php?action=ajaxui#ajaxUILoc=index.php%3Fmodule%3DLeads%26action%3Dindex%26parentTab%3DMarketing";
-    private WebDriver browser;
 
-    public LeadPage(WebDriver currentBrowser) {
-        browser = currentBrowser;
-        browser.get(url);
+    public LeadPage() {
+        open(url);
     }
 
     private By createButtonBy = By.xpath("//a[@data-action-name='Create']");
@@ -29,33 +21,27 @@ public class LeadPage {
     private By btnDeleteBy =    By.id("delete_button");
 
     public void CreateLead(String firstName, String lastName) {
-        WebDriverWait wait = new WebDriverWait(browser, 30);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(createButtonBy));
+        $(createButtonBy).should(appear);
+        $(createButtonBy).click();
 
-        browser.findElement(createButtonBy).click();
+        $(firstNameBy).should(appear);
+        $(firstNameBy).clear();
+        $(lastNameBy).clear();
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameBy));
-        WebElement firstNameElement = browser.findElement(firstNameBy);
-        WebElement lastNameElement = browser.findElement(lastNameBy);
+        $(firstNameBy).sendKeys(firstName);
+        $(lastNameBy).sendKeys(lastName);
 
-        firstNameElement.clear();
-        firstNameElement.sendKeys(firstName);
-        lastNameElement.clear();
-        lastNameElement.sendKeys(lastName);
+        $(btnSaveBy).click();
 
-        browser.findElement(btnSaveBy).click();
-
-        wait.until(ExpectedConditions.visibilityOfElementLocated(fullNameBy));
-        WebElement fullName = browser.findElement(fullNameBy);
-        assertTrue(fullName.getText().contains(firstName) && fullName.getText().contains(lastName));
+        $(fullNameBy).should(appear);
+        $(fullNameBy).should(have(text(firstName)));
+        $(fullNameBy).should(have(text(lastName)));
     }
 
     public void deleteLead(){
-        browser.findElement(btnActionsBy).click();
-
-        browser.findElement(btnDeleteBy).click();
-
-        browser.switchTo().alert().accept();
+        $(btnActionsBy).click();
+        $(btnDeleteBy).click();
+        confirm();
     }
 
 }

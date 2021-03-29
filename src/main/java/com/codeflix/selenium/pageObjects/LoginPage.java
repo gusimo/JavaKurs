@@ -1,19 +1,15 @@
 package com.codeflix.selenium.pageObjects;
 
-import org.junit.jupiter.api.TestReporter;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import static org.junit.jupiter.api.Assertions.*;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
 
 public class LoginPage {
 
     private String url = "http://crm.hiq.de";
-    private WebDriver browser;
 
-    public LoginPage(WebDriver currentBrowser) {
-        browser = currentBrowser;
-        browser.get(url);
+    public LoginPage() {
+        open(url);
     }
 
     private By txtUserNameBy = By.id("user_name");
@@ -22,15 +18,13 @@ public class LoginPage {
     private By txtLoginErrorBy = By.xpath("//span[contains(text(),'You must specify a valid username and password.')]");
 
     private void enterLoginData(String userName, String password) {
-        WebElement usernameElement = browser.findElement(txtUserNameBy);
-        usernameElement.clear();
-        usernameElement.sendKeys(userName);
+        $(txtUserNameBy).clear();
+        $(txtUserNameBy).sendKeys(userName);
 
-        WebElement passwordElement = browser.findElement(txtPasswordBy);
-        passwordElement.clear();
-        passwordElement.sendKeys(password);
+        $(txtPasswordBy).clear();
+        $(txtPasswordBy).sendKeys(password);
 
-        browser.findElement(btnLoginBy).click();
+        $(btnLoginBy).click();
     }
 
     public void login(String userName, String password) {
@@ -39,8 +33,7 @@ public class LoginPage {
 
     public void loginNegative(String userName, String password) {
         enterLoginData(userName, password);
-        WebElement error = browser.findElement(txtLoginErrorBy);
-        assertNotNull(error, "Error message was not found");
+        $(txtLoginErrorBy).should(appear);
     }
 
 }
