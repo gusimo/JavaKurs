@@ -1,5 +1,6 @@
 package com.codeflix.selenium;
 
+import com.codeborne.selenide.Configuration;
 import com.codeflix.selenium.pageObjects.LeadPage;
 import com.codeflix.selenium.pageObjects.LoginPage;
 import org.junit.jupiter.api.*;
@@ -13,6 +14,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith({TextReportExtension.class})
 public class CRMTest {
+
+    public CRMTest(){
+        Configuration.browser = "firefox";
+    }
 
     @Test
     @Order(1)
