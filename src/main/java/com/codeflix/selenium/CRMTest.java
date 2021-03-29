@@ -32,7 +32,7 @@ public class CRMTest {
     @Order(1)
     public void loginNegative(){
         LoginPage loginPage = new LoginPage(browser);
-        loginPage.login("gsimon", "NÖÖÖ");
+        loginPage.loginNegative("gsimon", "NÖÖÖ");
     }
 
     @Test

@@ -16,16 +16,21 @@ public class LoginPage {
         browser.get(url);
     }
 
+    private By txtUserNameBy = By.id("user_name");
+    private By txtPasswordBy = By.id("username_password");
+    private By btnLoginBy = By.id("bigbutton");
+    private By txtLoginErrorBy = By.xpath("//span[contains(text(),'You must specify a valid username and password.')]");
+
     private void enterLoginData(String userName, String password) {
-        WebElement usernameElement = browser.findElement(By.id("user_name"));
+        WebElement usernameElement = browser.findElement(txtUserNameBy);
         usernameElement.clear();
         usernameElement.sendKeys(userName);
 
-        WebElement passwordElement = browser.findElement(By.id("username_password"));
+        WebElement passwordElement = browser.findElement(txtPasswordBy);
         passwordElement.clear();
         passwordElement.sendKeys(password);
 
-        WebElement loginbuttonElement = browser.findElement(By.id("bigbutton"));
+        WebElement loginbuttonElement = browser.findElement(btnLoginBy);
         loginbuttonElement.click();
     }
 
@@ -35,7 +40,7 @@ public class LoginPage {
 
     public void loginNegative(String userName, String password) {
         enterLoginData(userName, password);
-        WebElement error = browser.findElement(By.xpath("//span[contains(text(),'You must specify a valid username and password.')]"));
+        WebElement error = browser.findElement(txtLoginErrorBy);
         assertNotNull(error, "Error message was not found");
     }
 
