@@ -30,9 +30,16 @@ public class CRMTest {
 
     @Test
     @Order(1)
+    public void loginNegative(){
+        LoginPage loginPage = new LoginPage(browser);
+        loginPage.login("gsimon", "NÖÖÖ");
+    }
+
+    @Test
+    @Order(2)
     public void login(){
         LoginPage loginPage = new LoginPage(browser);
-        loginPage.Login("gsimon", "LiM#m0cS");
+        loginPage.login("gsimon", "LiM#m0cS");
     }
 
     @Test
