@@ -32,8 +32,7 @@ public class LeadPage {
         WebDriverWait wait = new WebDriverWait(browser, 30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(createButtonBy));
 
-        WebElement createButton = browser.findElement(createButtonBy);
-        createButton.click();
+        browser.findElement(createButtonBy).click();
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameBy));
         WebElement firstNameElement = browser.findElement(firstNameBy);
@@ -44,8 +43,7 @@ public class LeadPage {
         lastNameElement.clear();
         lastNameElement.sendKeys(lastName);
 
-        WebElement btnSaveElement = browser.findElement(btnSaveBy);
-        btnSaveElement.click();
+        browser.findElement(btnSaveBy).click();
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(fullNameBy));
         WebElement fullName = browser.findElement(fullNameBy);
@@ -53,10 +51,9 @@ public class LeadPage {
     }
 
     public void deleteLead(){
-        WebElement actions = browser.findElement(btnActionsBy);
-        actions.click();
-        WebElement delete = browser.findElement(btnDeleteBy);
-        delete.click();
+        browser.findElement(btnActionsBy).click();
+
+        browser.findElement(btnDeleteBy).click();
 
         browser.switchTo().alert().accept();
     }

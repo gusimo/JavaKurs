@@ -30,8 +30,7 @@ public class LoginPage {
         passwordElement.clear();
         passwordElement.sendKeys(password);
 
-        WebElement loginbuttonElement = browser.findElement(btnLoginBy);
-        loginbuttonElement.click();
+        browser.findElement(btnLoginBy).click();
     }
 
     public void login(String userName, String password) {
